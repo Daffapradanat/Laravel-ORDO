@@ -27,7 +27,5 @@ Route::get('/perkalian', function () {
     if ($angka) {
         $hasil = $angka * 2;
         return "Hasil perkalian dari $angka adalah $hasil";
-    } else {
-        return 'Parameter "angka" belum diberikan';
     }
 });
