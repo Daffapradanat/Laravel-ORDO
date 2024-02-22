@@ -17,15 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
+Route::get('/hello', function() {
     return 'hello world';
 });
 
-Route::get('/perkalian', function () {
-    $angka = request()->query('angka');
-
-    if ($angka) {
-        $hasil = $angka * 2;
-        return "Hasil perkalian dari $angka adalah $hasil";
-    }
+Route::get('/perkalian/{angka}', function ($angka) {
+    return "Hasil perkalian dari $angka adalah".($angka * 2);  
 });
