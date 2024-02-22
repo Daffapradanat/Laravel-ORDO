@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function () {
+    return 'hello world';
+});
+
+Route::get('/perkalian', function () {
+    $angka = request()->query('angka');
+
+    if ($angka) {
+        $hasil = $angka * 2;
+        return "Hasil perkalian dari $angka adalah $hasil";
+    } else {
+        return 'Parameter "angka" belum diberikan';
+    }
+});
