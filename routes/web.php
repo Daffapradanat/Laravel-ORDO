@@ -21,6 +21,11 @@ Route::get('/hello', function() {
     return 'hello world';
 });
 
-Route::get('/perkalian/{angka}', function ($angka) {
-    return "Hasil perkalian dari $angka adalah".($angka * 2);  
+Route::get('/perkalian', function (Request $request) {
+    $angka1 = $request->query('angka1');
+    $angka2 = $request->query('angka2');
+
+    $hasil = $angka1 * $angka2;
+
+    return response()->json(['hasil' => $hasil]);
 });
