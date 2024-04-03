@@ -7,10 +7,12 @@ use App\Models\Cars;
 
 class CarController extends Controller
 {
-    public function index()
+    public function showCarsByBrand($brand)
     {
-        $cars = Cars::where('jenis', 'MPV')->get();
+        $cars = DB::table('cars')
+            ->where('brand', $brand)
+            ->get();
 
-        return view('cars.index', compact('cars'));
+        return view('cars-by-brand', ['cars' => $cars, 'brand' => $brand]);
     }
 }
