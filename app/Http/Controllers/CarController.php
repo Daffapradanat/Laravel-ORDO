@@ -9,8 +9,13 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars = Cars::where('jenis', 'MPV')->get();
-
-        return view('cars.index', compact('cars'));
+        $cars = Cars::all();
+        return view('index', ['cars' => $cars]);
     }
+
+    public function show($id)
+    {
+        $cars = Cars::findOrFail($id);
+        return view('show', ['cars' => $cars]);
+    }    
 }
