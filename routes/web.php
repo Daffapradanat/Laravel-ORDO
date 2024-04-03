@@ -41,4 +41,4 @@ Route::get('/perkalian', function (Request $request) {
     }
 });
 
-Route::get('/cars/{brand}', [CarController::class, 'showCarsByBrand']);
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
