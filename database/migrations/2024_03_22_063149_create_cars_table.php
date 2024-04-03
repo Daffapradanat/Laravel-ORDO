@@ -10,10 +10,11 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('jenis');
-            $table->decimal('harga', 20, 2);
-            $table->date('tanggal_pembuatan');
+            $table->string('brand');
+            $table->string('model');
+            $table->integer('year');
+            $table->string('color');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }
