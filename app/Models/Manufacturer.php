@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manufacturer extends Model
 {
-    public function manufacturer()
+    public function car(): HasOne
     {
-        return $this->hasOne(Manufacturer::class);
+        return $this->belongsTo(Cars::class);
     }
 }
