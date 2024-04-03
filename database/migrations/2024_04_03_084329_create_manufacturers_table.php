@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cars_id')->unique()->constrained();
             $table->string('nama');
             $table->string('alamat');
             $table->timestamps();
