@@ -2,20 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Cars extends Model
 {
-    use HasFactory;
+    /**
 
-    public function index()
+     */
+    public function manufacturer(): HasOne
     {
-        $cars = DB::table('cars')
-                    ->where('harga', '>', 200000000)
-                    ->get();
-        
-        return view('cars.index', compact('cars'));
+        return $this->hasOne(Manufacturer::class, 'id', 'manufacturer_id');
     }
-    
+    public function reviews(): hasMany
+    {
+        return $this->hasMany(Review::class);
+    }
 }
